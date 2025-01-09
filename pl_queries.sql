@@ -169,19 +169,20 @@ SELECT
 
 with cte as
 (
-select season, points as fourth_plced
+select season, points as seventeenth_placed
 from cleaned_epl_data
 where position = 17
 ),
 cte2 as 
 (
-select season, points as fifth_placed
+select season, points as eighteeneth_placed
 from cleaned_epl_data
 where position = 18
 )
-select cte.season, cte.fourth_plced, cte2.fifth_placed, (cte.fourth_plced - cte2.fifth_placed) as diff
+select cte.season, cte.seventeenth_placed, cte2.eighteeneth_placed, (cte.seventeenth_placed - cte2.eighteeneth_placed) as diff
 from cte
-join cte2 on cte.season = cte2.season;
+join cte2 on cte.season = cte2.season
+order by diff asc;
 
 
 
@@ -190,19 +191,20 @@ join cte2 on cte.season = cte2.season;
 
 with cte as
 (
-select season, points as fourth_placed
+select season, team, points as fourth_placed
 from cleaned_epl_data
 where position = 4
 ),
 cte2 as 
 (
-select season, points as fifth_placed
+select season, team, points as fifth_placed
 from cleaned_epl_data
 where position = 5
 )
-select cte.season, cte.fourth_placed, cte2.fifth_placed, (cte.fourth_placed - cte2.fifth_placed) as diff
+select cte.season, cte.fourth_placed, cte.team, cte2.fifth_placed, cte2.team, (cte.fourth_placed - cte2.fifth_placed) as diff
 from cte
-join cte2 on cte.season = cte2.season;
+join cte2 on cte.season = cte2.season
+order by diff asc;
 
 
 
@@ -211,17 +213,17 @@ join cte2 on cte.season = cte2.season;
 
 with cte as
 (
-select season, points as First
+select season, team, points as First
 from cleaned_epl_data
 where position = 1
 ),
 cte2 as 
 (
-select season, points as Second
+select season, team, points as Second
 from cleaned_epl_data
 where position = 2
 )
-select cte.season, cte.First, cte2.Second, (cte.First - cte2.Second) as diff
+select cte.season, cte.team as Winner, cte.First, cte2.team as Runnerup, cte2.Second, (cte.First - cte2.Second) as diff
 from cte
 join cte2 on cte.season = cte2.season
 order by diff asc;
@@ -292,9 +294,6 @@ WHERE r.team IS NULL  -- Exclude relegated teams
 
 
 
--- Longest Champions Streak
-
-select * from cleaned_epl_data;
 
 
 
