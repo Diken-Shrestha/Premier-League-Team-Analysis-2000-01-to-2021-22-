@@ -1,8 +1,8 @@
-# Premier-League-Team-Analysis-2000-01-to-2021-22-
+# **Premier League Team-Analysis 2000-01 to 2021-22**
 
 # Overview
-
 This project analyzes 22 seasons of English Premier League (EPL) data, covering team performance metrics, seasonal standings, and long-term trends. The analysis uses tools such as Python for data preparation, SQL for exploratory data analysis (EDA), and Power BI for visualization.
+
 
 ## Objectives
 
@@ -113,7 +113,7 @@ Dashboard Title
 
 
 ## Credits
-Data Source: EPL Standings (2000/01 to 2021/22)
+Data Source: Premier League Standings 22 Seasons (2000-2022) (Kaggle)
 https://www.kaggle.com/datasets/quadeer15sh/premier-league-standings-11-seasons-20102021 
 
 
